@@ -1,5 +1,5 @@
 {
-  "name": "browserify-node",
+  "name": "browserify-transform-server-side",
   "version": "0.0.1",
   "description": "Run Browserify transforms in Node",
   "main": "index.js",

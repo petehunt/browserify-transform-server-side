@@ -17,8 +17,8 @@ function transform(file) {
 }
 
 function _hook(module, filename) {
-  var inFile = fs.createReadStream(filename);
-  var stream = inFile.pipe(transform(filename));
+  var src = fs.readFileSync(filename);
+  var stream = transform(filename);
 
   var buf = '';
   function write(data) {
@@ -30,6 +30,9 @@ function _hook(module, filename) {
   }
 
   stream.pipe(through(write, end));
+
+  stream.write(src);
+  stream.end()
 }
 
 function install(transform) {
