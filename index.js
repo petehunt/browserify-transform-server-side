@@ -26,7 +26,7 @@ function _hook(module, filename) {
   }
 
   function end() {
-    module.exports = eval(buf);
+    module._compile(buf, filename);
   }
 
   stream.pipe(through(write, end));
